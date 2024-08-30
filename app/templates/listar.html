@@ -1,0 +1,48 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+Lista Prendas de Vestir
+{% endblock %}
+
+{% block principal %}
+<div class="prenda-container">
+    <h2>Lista Prendas de Vestir</h2>
+    <table class="prenda-table">
+        <thead>
+            <tr>
+                <td>#Id</td>
+                <td>Nombre</td>
+                <td>Color</td>
+                <td>Talla</td>
+                <td>Material</td>
+                <td>Género</td>
+                <td>Marca</td>
+                <td>Categoría</td>
+                <td>Precio</td>
+                <td>Cantidad</td>
+                <th colspan="2">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for prenda in prendas %}
+                <tr>
+                    <td>{{ prenda.id }}</td>
+                    <td>{{ prenda.nombre }}</td>
+                    <td>{{ prenda.color }}</td>
+                    <td>{{ prenda.talla }}</td>
+                    <td>{{ prenda.material }}</td>
+                    <td>{{ prenda.genero }}</td>
+                    <td>{{ prenda.marca }}</td>
+                    <td>{{ prenda.categoria }}</td>
+                    <td>{{ prenda.precio }}</td>
+                    <td>{{ prenda.cantidad }}</td>
+                    <td><a href="editar/{{ prenda.id }}" class="btn btn-editar">Editar</a></td>
+                    <td><a href="eliminar/{{ prenda.id }}" onclick="return confirm('¿Está seguro que quiere eliminar esta prenda de vestir?')"
+                            class="btn btn-eliminar">Eliminar</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'agregar' %}" class="btn btn-agregar">Agregar</a>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/styles/style.css' %}">
+    <link rel="icon" href="{% static '/icon.png' %}" type="image/png">
+    <title>
+        {% block titulo %}
+        Prendas-Vestir
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <nav>
+        <h1>Catálogo de Prendas de Vestir</h1>
+    </nav>
+    <div class="container">
+        {% block principal %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>

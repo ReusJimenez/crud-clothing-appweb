@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block titulo %}
+Editar Prendas de Vestir
+{% endblock %}
+
+{% block principal %}
+<div class="prenda-container">
+    <h2>Actualizar Prendas de Vestir</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <button type="submit" class="btn btn-form">Actualizar</button>
+    </form>
+    <a href="{% url 'listar' %}" class="btn btn-inicio">Volver al Inicio</a>
+</div>
+{% endblock %}
